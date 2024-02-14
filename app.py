@@ -3,10 +3,11 @@ import openai
 import os
 
 # Retrieve the API key from the environment variable
-#OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
 # Initialize the OpenAI client with the API key
-openai_api_key = st.secrets["openai"]["api_key"]
+openai.api_key = OPENAI_API_KEY
+
 # Define the function to generate test cases
 def generate_test_cases(requirement):
     response = openai.ChatCompletion.create(
